@@ -3,6 +3,10 @@ $("#start").on("click", function(){
     game.start()
 
 })
+// Done button
+$(document).on("click", "#stop",function(){
+    game.done()
+})
 
 // questions and answers
 var QuestionsArray =[{
@@ -26,11 +30,14 @@ correctOne: "Apollo 13"}
 
 ]
 
+var timer;
+
 
 var game = {
     correct: 0,
     incorrect: 0,
     time: 200,
+    unanswered: 0,
 
     countdown: function(){
         game.time--;
@@ -46,7 +53,7 @@ var game = {
         // timer
         timer = setInterval(game.countdown, 1000);
         // to display Time Remaining:120 Seconds
-        $("#question").prepend('<h2>Time Remaining: <span id="time">120</span> Seconds</h2> <br><br>' )
+        $("#question").prepend('<h2 id="countdown">Time Remaining: <span id="time">120</span> Seconds</h2> <br><br>' )
          // on click Start button, it should hide
     $("#start").remove();
     // selecting questions from array
@@ -58,7 +65,7 @@ var game = {
         for(var a=0; a<QuestionsArray[i].answers.length; a++){
 
           // append to html div and display answers with radio button
-          $("#question").append("<input type = 'radio' name='question-"+i+"'values= '"+"<br>"+QuestionsArray[i].answers[a]+" '>"+QuestionsArray[i].answers[a]);
+          $("#question").append("<input type='radio' name='question-" + i + "' value='" + QuestionsArray[i].answers[a] + "' /><span>" + QuestionsArray[i].answers[a] + "</span>");
         }
 
     }
@@ -67,52 +74,59 @@ var game = {
     $("#question").append('<br> <br><br><button id="stop">Done</button>')
     },
     done: function(){
-        $.each($('input[name="questions-0]":checked'),function(){
-            if($(this).val()==QuestionsArray[0].correctAnswer){
-                game.correct++;
-            }
-            else{
-                game.incorrect++;
-            }
-        });
+        clearInterval(timer);
 
-        $.each($('input[name="questions-1]":checked'),function(){
-            if($(this).val()==QuestionsArray[1].correctAnswer){
-                game.correct++;
-            }
-            else{
-                game.incorrect++;
-            }
-        });
+        console.log('Checked radio button value: ', $('input[name="question-0"]:checked').val());
+        console.log('Correct answer: ', QuestionsArray[0].correctOne)
 
-        $.each($('input[name="questions-2]":checked'),function(){
-            if($(this).val()==QuestionsArray[2].correctAnswer){
-                game.correct++;
+        for (var i = 0; i < QuestionsArray.length; i++) {
+            if (!$('input[name="question-' + i + '"]:checked').val()) {
+                game.unanswered++;
             }
-            else{
-                game.incorrect++;
-            }
-        });
+        }
 
-        $.each($('input[name="questions-3]":checked'),function(){
-            if($(this).val()==QuestionsArray[3].correctAnswer){
-                game.correct++;
-            }
-            else{
-                game.incorrect++;
-            }
-        });
+        if ($('input[name="question-0"]:checked').val() === QuestionsArray[0].correctOne) {
+            game.correct++;
+        } else {
+            game.incorrect++;
+        }
+        console.log('Checked radio button value: ', $('input[name="question-1"]:checked').val());
+        console.log('Correct answer: ', QuestionsArray[1].correctOne)
+        if ($('input[name="question-1"]:checked').val() === QuestionsArray[1].correctOne) {
+            game.correct++;
+        } else {
+            game.incorrect++;
+        }
+        console.log('Checked radio button value: ', $('input[name="question-2"]:checked').val());
+        console.log('Correct answer: ', QuestionsArray[2].correctOne)
+        if ($('input[name="question-2"]:checked').val() === QuestionsArray[2].correctOne) {
+            game.correct++;
+        } else {
+            game.incorrect++;
+        }
+        console.log('Checked radio button value: ', $('input[name="question-3"]:checked').val());
+        console.log('Correct answer: ', QuestionsArray[3].correctOne)
+        if ($('input[name="question-3"]:checked').val() === QuestionsArray[3].correctOne) {
+            game.correct++;
+        } else {
+            game.incorrect++;
+        }
+
+        
         // result
+        console.log('# Incorrect: ', game.incorrect)
+        console.log('# Correct: ', game.correct)
         this.result();
     },
     // display result
-    result: function(){
+    result: function() {
+        console.log("result");
         clearInterval(timer);
-        $('#question h2').revove();
+        $('#question h2').remove();
 
         $("#question").html("<h2> All Done!</h2>");
         $("#question").append("<h3>Correct Answer: "+this.correct+"</h3>");
         $("#question").append("<h3>Incorrect Answer: "+this.incorrect+"</h3>");
-        $("#question").append("<h3>Unanswered:"+(QuestionsArray.length-(this.correct))+"</h3>");
+        $("#question").append("<h3>Unanswered:"+game.unanswered+"</h3>");
     }
 }
