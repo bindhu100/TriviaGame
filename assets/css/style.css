@@ -1,12 +1,19 @@
 /* jumbotron */
 .jumbotron{
-    height: 150px;
+    height: 100px;
     font-family: 'Georgia', Times, 'Times New Roman', serif;
+    /* background-image: url("../image/knowledge-wallpapers.jpg"); */
+    background-color:#efeff79a;
+    color: #2f13cc;
+    padding: 10px;
 }
 
 body{
     font-family: 'Arial', 'Helvetica Neue', Helvetica, sans-serif;
     /* background-image: url("../image/abstract.jpg"); */
+    /* background-image: url("../image/knowledge-wallpapers.jpg"); */
+    /* background-image: url("../image/download.jpg"); */
+    background-image: url("../image/questionRed.jpg");
     background-color: #f0f8ff;
     
 }
@@ -21,16 +28,24 @@ body{
     width: 400px;
     height: 100px;
     font-family: 'Georgia', Times, 'Times New Roman', serif;
-    background-image: url(../image/diamond-background2.jpg)
+    /* background-image: url(../image/diamond-background2.jpg) */
+    /* background-color: #fd765e86; */
+    background-color: #fd765e86;
 }
-
-
+/* Start button */
+#start{
+ margin-left: 370px;
+}
 
 #question{
     text-align: center;
+    /* background-color:#efeff7e0; */
+    /* background-color:#20203191; */
+    background-color: #f0f8ffcc;
+    color: black;
 }
 
-
+/* Done -button */
 #stop{
     background-color: blue;
     height: 50px;
@@ -44,6 +59,7 @@ input{
     margin-right: 2px;
     margin-left: 15px;
     background-color: blue;
+    border: blue;
 }
 
 /* input[type=radio] {
@@ -52,6 +68,7 @@ background-color: blue;
 /* Time Remaining: 200 Seconds */
 #countdown{
     color: blue;
+    background-color: #f0f8ff;
 }
  
 /* body {
@@ -59,4 +76,9 @@ background-color: blue;
     background-color:yellow;} */
     /* #question{
         background-image: url(../image/diamond-background2.jpg)
+    } */
+
+    /* input[type=checkbox], 
+    input[type=radio]{
+        box-shadow: rgba(102, 17, 17, 0.911);
     } */
