@@ -28,25 +28,25 @@ var QuestionsArray =[{
     answers:["Manvillet", "Melvin", "Mortimer", "Murgatroyd"],
     correctOne: "Mortimer"
 },
-{questions:"For which movie Tom Hanks nominated third time in Oscars, 1996?",
-answers:["Saving Private Ryan", "Forrest Gump", "Cast Away", "Apollo 13"],
-correctOne: "Apollo 13"},
-// 
-{questions:"The creatures known as Fraggles were created by whom?",
-answers:["Lewis Carroll", "the Brothers Grimm", "Jim Henson ", "Dr. Seuss"],
-correctOne: "Jim Henson"},
+{   questions:"For which movie Tom Hanks nominated third time in Oscars, 1996?",
+    answers:["Saving Private Ryan", "Forrest Gump", "Cast Away", "Apollo 13"],
+        correctOne: "Apollo 13"},
+    // 
+{    questions:"The creatures known as Fraggles were created by whom?",
+     answers:["Lewis Carroll", "the Brothers Grimm", "Jim Henson", "Dr. Seuss"],
+     correctOne: "Jim Henson"},
 
-{questions:"On the TV show The Love Boat, Adam Bricker's job on the ship was what?",
-answers:["bartender", "captain", "doctor", "social director"],
-correctOne: "doctor"},
+{   questions:"On the TV show The Love Boat, Adam Bricker's job on the ship was what?",
+    answers:["bartender", "captain", "doctor", "social director"],
+    correctOne: "doctor"},
 
-{questions:"What band leader was known as The King of Swing?",
-answers:["Tommy Dorsey", " Benny Goodman ", "Guy Lombardo", "Glenn Miller"],
-correctOne: "Benny Goodman"},
+{   questions:"What band leader was known as The King of Swing?",
+    answers:["Tommy Dorsey", "Benny Goodman", "Guy Lombardo", "Glenn Miller"],
+    correctOne: "Benny Goodman"},
 
-{questions:"The musical work, The Sorcerer's Apprentice, was written by whom?",
-answers:["Paul Dukas", "Wolfgang Amadeus Mozart", "Maurice Ravel", "Camille Saint-Saens"],
-correctOne: "Paul Dukas"},
+{   questions:"The musical work, The Sorcerer's Apprentice, was written by whom?",
+    answers:["Paul Dukas", "Wolfgang Amadeus Mozart", "Maurice Ravel", "Camille Saint-Saens"],
+    correctOne: "Paul Dukas"},
 
 
 ]
@@ -109,7 +109,10 @@ var game = {
                 game.unanswered++;
             }
         }
-
+        // 8888888888888888888888888888888888888888888
+        // console.log('Checked radio button value: ', $('input[name="question-0"]:checked').val());
+        // console.log('Correct answer: ', QuestionsArray[0].correctOne)
+        // 8888888888888888888888888888888888888
         if ($('input[name="question-0"]:checked').val() === QuestionsArray[0].correctOne) {
             game.correct++;
         } else {
@@ -178,6 +181,11 @@ var game = {
 
     // 8888888888888888888888888888888888888888888888888888888888888
    
+   
+        
+        
+
+
     // 888888888888888888888888888888888888888888888888
     // display result
     result: function() {
@@ -191,7 +199,7 @@ var game = {
         $("#question").append("<h3>Unanswered:"+game.unanswered+"</h3>");
 
         // 88888888888888888888888888888888888888888888888888888888888888888
-        console.image("image/paper.png");
+        
         // 888888888888888888888888888888888888888888888888888888888888888888888888888888
     }
 }
