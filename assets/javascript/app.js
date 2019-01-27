@@ -8,9 +8,7 @@ $(document).on("click", "#stop",function(){
     game.done()
 })
 
-// 88888888888888888888888888888888888888888888888888888888888888888
 
-// 888888888888888888888888888888888888888888888888888888888888888888888888888
 // questions and answers
 var QuestionsArray =[{
 
@@ -59,7 +57,7 @@ var timer;
 var game = {
     correct: 0,
     incorrect: 0,
-    time: 200,
+    time: 120,
     unanswered: 0,
 
     countdown: function(){
@@ -98,9 +96,7 @@ var game = {
     },
     done: function(){
         clearInterval(timer);
-        // 8888888888888888888888888888888888888888888888888888888
-        
-        // 8888888888888888888888888888888888888888888888888888888888
+
         console.log('Checked radio button value: ', $('input[name="question-0"]:checked').val());
         console.log('Correct answer: ', QuestionsArray[0].correctOne)
 
@@ -109,10 +105,7 @@ var game = {
                 game.unanswered++;
             }
         }
-        // 8888888888888888888888888888888888888888888
-        // console.log('Checked radio button value: ', $('input[name="question-0"]:checked').val());
-        // console.log('Correct answer: ', QuestionsArray[0].correctOne)
-        // 8888888888888888888888888888888888888
+
         if ($('input[name="question-0"]:checked').val() === QuestionsArray[0].correctOne) {
             game.correct++;
         } else {
@@ -140,7 +133,6 @@ var game = {
             game.incorrect++;
         }
 
-        // 88888888888888888888888888888888888888888
         console.log('Checked radio button value: ', $('input[name="question-4"]:checked').val());
         console.log('Correct answer: ', QuestionsArray[4].correctOne)
         if ($('input[name="question-4"]:checked').val() === QuestionsArray[4].correctOne) {
@@ -179,14 +171,7 @@ var game = {
         this.result();
     },
 
-    // 8888888888888888888888888888888888888888888888888888888888888
-   
-   
-        
-        
 
-
-    // 888888888888888888888888888888888888888888888888
     // display result
     result: function() {
         console.log("result");
@@ -198,8 +183,5 @@ var game = {
         $("#question").append("<h3>Incorrect Answer: "+this.incorrect+"</h3>");
         $("#question").append("<h3>Unanswered:"+game.unanswered+"</h3>");
 
-        // 88888888888888888888888888888888888888888888888888888888888888888
-        
-        // 888888888888888888888888888888888888888888888888888888888888888888888888888888
     }
 }
