@@ -179,10 +179,10 @@ var game = {
         clearInterval(timer);
         $('#question h2').remove();
         $("#question").html("<h2 id='ll'> All Done!<br></h2> <br>");
-        
+
         $("#question").append("<h3>Correct Answer: "+this.correct+"</h3>");
         $("#question").append("<h3>Incorrect Answer: "+this.incorrect+"</h3>");
-        $("#question").append("<h3>Unanswered: "+game.unanswered+"</h3>");
+        $("#question").append("<h3>Unanswered: "+game.unanswered+"</h3><br>");
 
     }
 }
