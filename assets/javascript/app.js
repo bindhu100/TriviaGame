@@ -177,7 +177,7 @@ var game = {
         console.log("result");
         clearInterval(timer);
         $('#question h2').remove();
-
+       
         $("#question").html("<h2> All Done!</h2>");
         $("#question").append("<h3>Correct Answer: "+this.correct+"</h3>");
         $("#question").append("<h3>Incorrect Answer: "+this.incorrect+"</h3>");
