@@ -87,4 +87,12 @@ input{
     color: blue;
     background-color: #f0f8ff;
 }
+/* Clapping image and  "All Done" test*/
+#ll{
+    color: blue;
+    background-image: url("../image/LightheartedBlueArchaeocete-max-1mb.gif") ;
+    padding: 125px;
+    margin-right: 100px;
+    margin-left: 100px;
+}
  

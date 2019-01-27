@@ -168,6 +168,7 @@ var game = {
         // result
         console.log('# Incorrect: ', game.incorrect)
         console.log('# Correct: ', game.correct)
+
         this.result();
     },
 
@@ -177,8 +178,8 @@ var game = {
         console.log("result");
         clearInterval(timer);
         $('#question h2').remove();
-       
-        $("#question").html("<h2> All Done!</h2>");
+        $("#question").html("<h2 id='ll'> All Done!<br></h2> <br>");
+        
         $("#question").append("<h3>Correct Answer: "+this.correct+"</h3>");
         $("#question").append("<h3>Incorrect Answer: "+this.incorrect+"</h3>");
         $("#question").append("<h3>Unanswered: "+game.unanswered+"</h3>");
