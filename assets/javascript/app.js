@@ -9,6 +9,8 @@ $(document).on("click", "#stop",function(){
 })
 
 
+
+
 // questions and answers
 var QuestionsArray =[{
 
@@ -94,6 +96,38 @@ var game = {
     // Done button
     $("#question").append('<br> <br><br><button id="stop">Done</button>')
     },
+
+    
+
+
+    btn: function (){
+
+        // timer
+        timer = setInterval(game.countdown, 1000);
+        // to display Time Remaining:120 Seconds
+        $("#question").prepend('<h2 id="countdown">Time Remaining: <span id="time">120</span> Seconds</h2> <br>' )
+         // on click Start button, it should hide
+    $(btn).remove();
+    // selecting questions from array
+    for(var i=0; i<QuestionsArray.length ; i++){
+        // append to html div and display questions
+        $("#question").append("<h2>"+QuestionsArray[i].questions+"</h2>");
+
+        // selecting answer from array
+        for(var a=0; a<QuestionsArray[i].answers.length; a++){
+
+          // append to html div and display answers with radio button
+          $("#question").append("<input type ='radio' name='question-" + i + "' value='" + QuestionsArray[i].answers[a] + "' /><span>" + QuestionsArray[i].answers[a] + "</span>");
+        }
+
+    }
+       
+    // Done button
+    $("#question").append('<br> <br><br><button id="stop">Done</button>')
+    },
+    // 8888888888888888888888888888888888888888888888888888888888888
+
+  
     done: function(){
         clearInterval(timer);
 
@@ -180,9 +214,12 @@ var game = {
         $('#question h2').remove();
         $("#question").html("<h2 id='ll'> All Done!<br></h2> <br>");
 
-        $("#question").append("<h3>Correct Answer: "+this.correct+"</h3>");
-        $("#question").append("<h3>Incorrect Answer: "+this.incorrect+"</h3>");
-        $("#question").append("<h3>Unanswered: "+game.unanswered+"</h3><br>");
+        $("#question").append("<h3 class='p' id='g'>Correct Answer: "+this.correct+"</h3>");
+        $("#question").append("<h3 class='p' id='r'>Incorrect Answer: "+this.incorrect+"</h3>");
+        $("#question").append("<h3 class='p' id='y'>Unanswered: "+game.unanswered+"</h3><br>");
 
+        
+    
+          
     }
 }
